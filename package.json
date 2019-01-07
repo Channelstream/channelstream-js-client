@@ -1,0 +1,13 @@
+{
+  "name": "channelstream",
+  "version": "0.0.1",
+  "description": "ChannelStream JS Client",
+  "main": "index.js",
+  "repository": "https://github.com/Channelstream/channelstream-js-client",
+  "author": "Marcin Lulek",
+  "license": "BSD 3-clause",
+  "devDependencies": {
+    "docdash": "^1.0.0",
+    "jsdoc": "^3.5.5"
+  }
+}
