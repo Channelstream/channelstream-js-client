@@ -5,7 +5,7 @@
   "main": "index.js",
   "repository": "https://github.com/Channelstream/channelstream-js-client",
   "author": "Marcin Lulek",
-  "license": "BSD 3-clause",
+  "license": "BSD-3-Clause",
   "devDependencies": {
     "docdash": "^1.0.0",
     "jsdoc": "^3.5.5"
