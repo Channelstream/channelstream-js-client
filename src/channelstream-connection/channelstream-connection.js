@@ -30,7 +30,7 @@ import {ChannelStreamConnection} from '../channelstream.js';
  By default element has a listener attached that will fire `retryConnection()` handler on `channelstream-connect-error` event,
  this handler will forever try to re-establish connection to the server incrementing intervals between retries up to 1 minute.
  */
-class ChannelStreamConnectionElement extends HTMLElement {
+export class ChannelStreamConnectionElement extends HTMLElement {
     static get is() {
         return 'channelstream-connection';
     }
