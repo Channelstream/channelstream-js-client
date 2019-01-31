@@ -152,6 +152,7 @@ class ChannelStreamConnectionElement extends HTMLElement {
          * mutators will be executed in order they were pushed onto arrays
          *
          */
+        this.version = "0.0.1";
         this.mutators = {
             connect: [],
             message: [],

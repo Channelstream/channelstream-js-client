@@ -4,8 +4,8 @@
 export class ChannelStreamConnection {
 
     constructor() {
+        this.version = "0.0.1";
         this.debug = false;
-
         /** List of channels user should be subscribed to. */
         this.channels = [];
         /** Username of connecting user. */
