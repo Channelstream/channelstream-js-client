@@ -3,8 +3,11 @@
  */
 export class ChannelStreamConnection {
 
+    static get version() {
+        return '0.0.2';
+    }
+
     constructor() {
-        this.version = "0.0.1";
         this.debug = false;
         /** List of channels user should be subscribed to. */
         this.channels = [];
@@ -267,8 +270,7 @@ export class ChannelStreamConnection {
         }
         if (this.noWebsocket === false) {
             this.openWebsocket();
-        }
-        else {
+        } else {
             this.openLongPoll();
         }
     }
@@ -327,8 +329,7 @@ export class ChannelStreamConnection {
         }
         if (this._currentBounceIv < 60000) {
             this._currentBounceIv = this._currentBounceIv + this.increaseBounceIv;
-        }
-        else {
+        } else {
             this._currentBounceIv = 60000;
         }
         setTimeout(this.connect.bind(this), this._currentBounceIv);
@@ -895,8 +896,7 @@ class ChannelStreamRequest {
             } else {
                 this.handleError(this.request, result);
             }
-        }
-        else {
+        } else {
             this.handleRequest(this.request);
         }
     };
@@ -918,8 +918,7 @@ class ChannelStreamRequest {
             this.request.open(verb || 'POST', this.url);
             this.request.setRequestHeader('Content-Type', 'application/json');
             this.request.send(JSON.stringify(this.body));
-        }
-        else {
+        } else {
             this.request.open(verb || 'GET', this.url);
             this.request.send();
         }

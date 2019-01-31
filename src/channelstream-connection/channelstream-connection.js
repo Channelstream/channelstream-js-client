@@ -31,6 +31,11 @@ import {ChannelStreamConnection} from '../channelstream.js';
  this handler will forever try to re-establish connection to the server incrementing intervals between retries up to 1 minute.
  */
 export class ChannelStreamConnectionElement extends HTMLElement {
+
+    static get version() {
+        return '0.0.2';
+    }
+
     static get is() {
         return 'channelstream-connection';
     }
@@ -135,6 +140,7 @@ export class ChannelStreamConnectionElement extends HTMLElement {
     static get observedAttributes() {
         return ['channels'];
     }
+
     attributeChangedCallback(name, oldValue, newValue) {
         this.dispatchEvent(new CustomEvent('channels-changed', {
             detail: {value: this.channels},
@@ -143,7 +149,7 @@ export class ChannelStreamConnectionElement extends HTMLElement {
         }));
     }
 
-    constructor(){
+    constructor() {
         super();
         /**
          * Mutators hold functions that you can set locally to change the data
@@ -152,7 +158,6 @@ export class ChannelStreamConnectionElement extends HTMLElement {
          * mutators will be executed in order they were pushed onto arrays
          *
          */
-        this.version = "0.0.1";
         this.mutators = {
             connect: [],
             message: [],
@@ -184,7 +189,6 @@ export class ChannelStreamConnectionElement extends HTMLElement {
         this.connected = false;
         this.connection = new ChannelStreamConnection();
     }
-
 
 
     ready() {
@@ -340,7 +344,7 @@ export class ChannelStreamConnectionElement extends HTMLElement {
             return;
         }
         this.dispatchEvent(new CustomEvent('channelstream-channels-changed', {
-            detail: {channels:this.connection.channels},
+            detail: {channels: this.connection.channels},
             bubbles: true,
             composed: true
         }));
@@ -349,7 +353,7 @@ export class ChannelStreamConnectionElement extends HTMLElement {
     _listenOpenedCallback(request, data) {
         this.connected = this.connection.connected;
         this.dispatchEvent(new CustomEvent('channelstream-listen-opened', {
-            detail: {request:request, data:data},
+            detail: {request: request, data: data},
             bubbles: true,
             composed: true
         }));
@@ -358,7 +362,7 @@ export class ChannelStreamConnectionElement extends HTMLElement {
     _connectErrorCallback(request, data) {
         this.connected = this.connection.connected;
         this.dispatchEvent(new CustomEvent('channelstream-connect-error', {
-            detail: {request:request, data:data},
+            detail: {request: request, data: data},
             bubbles: true,
             composed: true
         }));
@@ -366,7 +370,7 @@ export class ChannelStreamConnectionElement extends HTMLElement {
 
     _listenMessageCallback(messages) {
         this.dispatchEvent(new CustomEvent('channelstream-listen-message', {
-            detail: {messages:messages},
+            detail: {messages: messages},
             bubbles: true,
             composed: true
         }));
@@ -384,7 +388,7 @@ export class ChannelStreamConnectionElement extends HTMLElement {
     _listenErrorCallback(request, data) {
         this.connected = this.connection.connected;
         this.dispatchEvent(new CustomEvent('channelstream-listen-error', {
-            detail: {request:request, data:data},
+            detail: {request: request, data: data},
             bubbles: true,
             composed: true
         }));
@@ -393,7 +397,7 @@ export class ChannelStreamConnectionElement extends HTMLElement {
     _connectCallback(request, data) {
         this.connectionId = this.connection.connectionId;
         this.dispatchEvent(new CustomEvent('channelstream-connected', {
-            detail: {request:request, data:data},
+            detail: {request: request, data: data},
             bubbles: true,
             composed: true
         }));
@@ -402,7 +406,7 @@ export class ChannelStreamConnectionElement extends HTMLElement {
     _disconnectCallback(request, data) {
         this.connected = this.connection.connected;
         this.dispatchEvent(new CustomEvent('channelstream-disconnected', {
-            detail: {request:request, data:data},
+            detail: {request: request, data: data},
             bubbles: true,
             composed: true
         }));
@@ -410,7 +414,7 @@ export class ChannelStreamConnectionElement extends HTMLElement {
 
     _messageCallback(request, data) {
         this.dispatchEvent(new CustomEvent('channelstream-message-sent', {
-            detail: {request:request, data:data},
+            detail: {request: request, data: data},
             bubbles: true,
             composed: true
         }));
@@ -418,7 +422,7 @@ export class ChannelStreamConnectionElement extends HTMLElement {
 
     _messageErrorCallback(request, data) {
         this.dispatchEvent(new CustomEvent('channelstream-message-error', {
-            detail: {request:request, data:data},
+            detail: {request: request, data: data},
             bubbles: true,
             composed: true
         }));
@@ -426,7 +430,7 @@ export class ChannelStreamConnectionElement extends HTMLElement {
 
     _messageEditCallback(request, data) {
         this.dispatchEvent(new CustomEvent('channelstream-message-edit-sent', {
-            detail: {request:request, data:data},
+            detail: {request: request, data: data},
             bubbles: true,
             composed: true
         }));
@@ -434,7 +438,7 @@ export class ChannelStreamConnectionElement extends HTMLElement {
 
     _messageEditErrorCallback(request, data) {
         this.dispatchEvent(new CustomEvent('channelstream-message-edit-error', {
-            detail: {request:request, data:data},
+            detail: {request: request, data: data},
             bubbles: true,
             composed: true
         }));
@@ -442,7 +446,7 @@ export class ChannelStreamConnectionElement extends HTMLElement {
 
     _messageDeleteCallback(request, data) {
         this.dispatchEvent(new CustomEvent('channelstream-message-delete-sent', {
-            detail: {request:request, data:data},
+            detail: {request: request, data: data},
             bubbles: true,
             composed: true
         }));
@@ -450,7 +454,7 @@ export class ChannelStreamConnectionElement extends HTMLElement {
 
     _messageDeleteErrorCallback(request, data) {
         this.dispatchEvent(new CustomEvent('channelstream-message-delete-error', {
-            detail: {request:request, data:data},
+            detail: {request: request, data: data},
             bubbles: true,
             composed: true
         }));
@@ -458,7 +462,7 @@ export class ChannelStreamConnectionElement extends HTMLElement {
 
     _subscribeCallback(request, data) {
         this.dispatchEvent(new CustomEvent('channelstream-subscribed', {
-            detail: {request:request, data:data},
+            detail: {request: request, data: data},
             bubbles: true,
             composed: true
         }));
@@ -466,7 +470,7 @@ export class ChannelStreamConnectionElement extends HTMLElement {
 
     _subscribeErrorCallback(request, data) {
         this.dispatchEvent(new CustomEvent('channelstream-subscribe-error', {
-            detail: {request:request, data:data},
+            detail: {request: request, data: data},
             bubbles: true,
             composed: true
         }));
@@ -474,7 +478,7 @@ export class ChannelStreamConnectionElement extends HTMLElement {
 
     _unsubscribeCallback(request, data) {
         this.dispatchEvent(new CustomEvent('channelstream-unsubscribed', {
-            detail: {request:request, data:data},
+            detail: {request: request, data: data},
             bubbles: true,
             composed: true
         }));
@@ -482,7 +486,7 @@ export class ChannelStreamConnectionElement extends HTMLElement {
 
     _unsubscribeErrorCallback(request, data) {
         this.dispatchEvent(new CustomEvent('channelstream-unsubscribe-error', {
-            detail: {request:request, data:data},
+            detail: {request: request, data: data},
             bubbles: true,
             composed: true
         }));
@@ -490,7 +494,7 @@ export class ChannelStreamConnectionElement extends HTMLElement {
 
     _setUserStateCallback(request, data) {
         this.dispatchEvent(new CustomEvent('channelstream-set-user-state', {
-            detail: {request:request, data:data},
+            detail: {request: request, data: data},
             bubbles: true,
             composed: true
         }));
@@ -498,7 +502,7 @@ export class ChannelStreamConnectionElement extends HTMLElement {
 
     _setUserStateErrorCallback(request, data) {
         this.dispatchEvent(new CustomEvent('channelstream-set-user-state-error', {
-            detail: {request:request, data:data},
+            detail: {request: request, data: data},
             bubbles: true,
             composed: true
         }));
