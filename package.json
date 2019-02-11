@@ -1,6 +1,6 @@
 {
   "name": "@channelstream/channelstream",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "ChannelStream JS Client",
   "main": "src/index.js",
   "module": "src/index.js",
