@@ -1,4 +1,4 @@
-import {jsSHA} from "./sha-esm.js";
+import {jsSHA1 as jsSHA} from "./sha1-esm.js";
 
 export class ChannelStreamSigner {
 

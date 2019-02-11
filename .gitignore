@@ -143,5 +143,5 @@ typings/
 out
 gen
 /yarn-error.log
-/src/sha-esm.js
+/src/sha*-esm.js
 /test_index.html
