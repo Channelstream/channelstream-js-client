@@ -3,12 +3,23 @@
   "version": "0.0.2",
   "description": "ChannelStream JS Client",
   "main": "src/index.js",
+  "module": "src/index.js",
   "private": true,
   "repository": "https://github.com/Channelstream/channelstream-js-client",
   "author": "Marcin Lulek",
   "license": "BSD-3-Clause",
+  "scripts": {
+    "build": "rollup -c",
+    "prepare": "npm run build"
+  },
   "devDependencies": {
     "docdash": "^1.0.0",
-    "jsdoc": "^3.5.5"
+    "jsdoc": "^3.5.5",
+    "rollup": "^1.1.2",
+    "rollup-plugin-commonjs": "^9.2.0",
+    "rollup-plugin-node-resolve": "^4.0.0"
+  },
+  "dependencies": {
+    "jssha": "2.3.1"
   }
 }
