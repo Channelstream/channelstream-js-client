@@ -1,6 +1,6 @@
 {
   "name": "@channelstream/channelstream",
-  "version": "0.0.5",
+  "version": "0.1.0",
   "description": "ChannelStream JS Client",
   "main": "src/index.js",
   "module": "src/index.js",
@@ -21,6 +21,6 @@
     "rollup-plugin-node-resolve": "^4.0.0"
   },
   "dependencies": {
-    "jssha": "2.3.1"
+    "jssha": "^2.3.1"
   }
 }

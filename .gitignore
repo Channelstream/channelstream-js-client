@@ -145,3 +145,4 @@ gen
 /yarn-error.log
 /src/sha*-esm.js
 /test_index.html
+/jsdoc_out/
